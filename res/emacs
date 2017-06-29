@@ -1,0 +1,5 @@
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+
+(normal-erase-is-backspace-mode 1)
+(setq x-alt-keysym 'meta)
