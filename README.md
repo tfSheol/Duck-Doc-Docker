@@ -4,12 +4,12 @@
 	docker build -t capgemini_alpine .
 ```
 
-## Launch whith coding email
+## Launch with coding email
 ```
 	docker run --device=/dev/tty --net host -e TERM=xterm -e USERNAME=prenom.nom@mail.eu -e PASSWORD="your_password" -it -v <replace_with_absolute_path>:/shared -w="/shared" capgemini_alpine
 ```
 
-## Launch whith old Epitech account
+## Launch with old Epitech account
 ```
 	docker run --device=/dev/tty --net host -e TERM=xterm -e USER=login_x -e USERNAME=teddy.fontaine@epitech.eu -e PASSWORD="your_password" -it -v <replace_with_absolute_path>:/shared -w="/shared" capgemini_alpine
 ```
