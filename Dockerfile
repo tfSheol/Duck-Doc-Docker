@@ -31,7 +31,7 @@ RUN apk upgrade --update && apk add alpine-sdk man man-pages bash-doc bash-compl
 	curl htop bash ncurses screen nano tar util-linux pciutils usbutils coreutils binutils findutils \
 	grep build-base gcc abuild binutils binutils-doc gcc-doc cmake cmake-doc extra-cmake-modules@testing \
 	extra-cmake-modules-doc@testing ccache ccache-doc ca-certificates wget python3 py-pip outils-sha512 \
-	emacs git ttf-ubuntu-font-family ttf-droid
+	emacs git ttf-ubuntu-font-family ttf-droid neovim neovim-doc mdocml-apropos curl-doc 
 
 # JAVA SE & LIB C
 RUN for pkg in glibc-${GLIBC_VERSION} glibc-bin-${GLIBC_VERSION} glibc-i18n-${GLIBC_VERSION}; do curl -sSL https://github.com/andyshinn/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/${pkg}.apk -o /tmp/${pkg}.apk; done && \
@@ -128,6 +128,11 @@ RUN rm -rf /tmp_blih
 
 # Alias
 RUN echo "alias ne=\"emacs\"" >> /root/.bashrc
+RUN echo "alias vi=\"nvim\"" >> /root/.bashrc
+RUN echo "alias n=\"vi\"" >> /root/.bashrc
+RUN echo "alias v=\"vi\"" >> /root/.bashrc
+RUN echo "alias i=\"vi\"" >> /root/.bashrc
+RUN echo "alias m=\"vi\"" >> /root/.bashrc
 
 RUN apk update
 

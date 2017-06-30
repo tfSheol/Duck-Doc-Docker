@@ -27,4 +27,10 @@
 ```
 	./commit.sh
 		info: Commit the last container in the last image;
+		cmd: docker commit $(docker ps -l -q) $(docker ps -l --format "{{.Image}}")
+
+	./clean.sh
+		info: Clean all images & old containers;
+		cmd containers: docker rm $(docker ps -a -q)
+		cmd images:	docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
 ```
