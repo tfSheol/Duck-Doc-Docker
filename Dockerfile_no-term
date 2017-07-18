@@ -116,6 +116,10 @@ COPY res/fix_blih.sh /usr/bin/fix_blih
 COPY res/repo.sh /usr/bin/repo
 COPY res/ssh-keygen-coding.sh /usr/bin/ssh-keygen-coding
 COPY res/create-repo.sh /usr/bin/create-repo
+RUN chmod +x /usr/bin/create-repo
+RUN chmod +x /usr/bin/ssh-keygen-coding
+RUN chmod +x /usr/bin/repo
+RUN chmod +x /usr/bin/fix_blih
 RUN fix_blih
 RUN echo "alias blih=\"blih -u \$USERNAME -t \\\"\$(sha512 -s \$PASSWORD -q)\\\"\"" >> /root/.bashrc
 WORKDIR /root/
