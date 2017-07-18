@@ -1,17 +1,20 @@
 # Duck-Doc-Docker
 ## Compile
 ```
-	docker build -t capgemini_alpine .
+	docker build -f Dockerfile_no-term -t capgemini_alpine_no-term .
+	docker build -f Dockerfile_bash-it -t capgemini_alpine_bash-it .
 ```
 
 ## Launch with coding email
 ```
-	docker run --device=/dev/tty --net host -e TERM=xterm -e USERNAME=prenom.nom@mail.eu -e PASSWORD="your_password" -it -v <replace_with_absolute_path>:/shared -w="/shared" capgemini_alpine
+	docker run -e USERNAME=prenom.nom@mail.eu -e PASSWORD="your_password" -it -v <replace_with_absolute_path>:/shared -w="/shared" capgemini_alpine_no-term
+	docker run -e USERNAME=prenom.nom@mail.eu -e PASSWORD="your_password" -it -v <replace_with_absolute_path>:/shared -w="/shared" capgemini_alpine_bash-it
 ```
 
 ## Launch with old Epitech account
 ```
-	docker run --device=/dev/tty --net host -e TERM=xterm -e USER=login_x -e USERNAME=prenom.nom@mail.eu -e PASSWORD="your_password" -it -v <replace_with_absolute_path>:/shared -w="/shared" capgemini_alpine
+	docker run -e USER=login_x -e USERNAME=prenom.nom@mail.eu -e PASSWORD="your_password" -it -v <replace_with_absolute_path>:/shared -w="/shared" capgemini_alpine_no-term
+	docker run -e USER=login_x -e USERNAME=prenom.nom@mail.eu -e PASSWORD="your_password" -it -v <replace_with_absolute_path>:/shared -w="/shared" capgemini_alpine_bash-it
 ```
 
 ## Docker Tools

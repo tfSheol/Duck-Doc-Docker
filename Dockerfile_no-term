@@ -100,12 +100,7 @@ RUN touch /root/.ssh/known_hosts && \
 	ssh-keyscan github.com >> /root/.ssh/known_hosts && \
 	ssh-keyscan git.epitech.eu >> /root/.ssh/known_hosts
 
-# TERM
-WORKDIR /
-RUN git clone https://github.com/Bash-it/bash-it.git
-WORKDIR /bash-it
-RUN ./install.sh -s
-WORKDIR /tmp_blih
+# TERM FIX
 RUN echo "exec >/dev/tty 2>/dev/tty </dev/tty" >> /root/.bashrc
 RUN echo "ssh-keygen-coding" >> /root/.bashrc
 RUN echo "eval \`ssh-agent\`" >> /root/.bashrc
@@ -135,7 +130,5 @@ RUN echo "alias i=\"vi\"" >> /root/.bashrc
 RUN echo "alias m=\"vi\"" >> /root/.bashrc
 
 RUN apk update
-
-COPY res/emacs /root/.emacs
 
 CMD ["/bin/bash", "-i"]
