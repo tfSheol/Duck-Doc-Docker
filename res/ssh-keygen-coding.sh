@@ -11,10 +11,10 @@ function upload {
 
 function generate {
 	echo "generate sshkey..."
-	ssh-keygen -t rsa -N "" -q -f /root/.ssh/id_rsa_coding
+	ssh-keygen -t rsa -N "" -q -f /root/.ssh/id_rsa_coding -C capgemini-docker
 	upload
 	if [ $? -eq 1 ]; then
-		blih -u $USERNAME -t "$(sha512 -s $PASSWORD -q)" sshkey delete $(echo $(whoami)@$(hostname))
+		blih -u $USERNAME -t "$(sha512 -s $PASSWORD -q)" sshkey delete capgemini-docker
 		upload
 	fi
 }
